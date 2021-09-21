@@ -6,6 +6,8 @@ public class PlayerBehaviour : MonoBehaviour
 {
     [SerializeField]
     private float moveSpeed;
+    [SerializeField]
+    Rigidbody2D rg;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +18,6 @@ public class PlayerBehaviour : MonoBehaviour
     {
         float inputX = Input.GetAxisRaw("Horizontal");
         float inputY = Input.GetAxisRaw("Vertical");
-        transform.position += new Vector3(inputX * moveSpeed * Time.deltaTime, inputY * moveSpeed * Time.deltaTime, 0);
+        rg.velocity = new Vector2(inputX * moveSpeed , inputY * moveSpeed );
     }
 }
